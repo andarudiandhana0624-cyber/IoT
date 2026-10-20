@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "author": "Andaru Ahmad maulana",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 96, "left": 33.64, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": 68.7, "left": -186.5, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 159.6,
+      "left": -63.4,
+      "attrs": { "color": "red" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "ultrasonic1:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "ultrasonic1:TRIG", "esp:5", "green", [ "v153.6", "h258.8", "v-96", "h0", "v-9.6" ] ],
+    [ "ultrasonic1:ECHO", "esp:18", "green", [ "v163.2", "h268", "v-124.8" ] ],
+    [ "ultrasonic1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "led1:C", "esp:GND.1", "green", [ "v0" ] ],
+    [ "led1:A", "esp:14", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
